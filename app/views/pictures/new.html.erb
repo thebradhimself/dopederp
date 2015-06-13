@@ -1,13 +1,14 @@
 <%= form_for @picture, {url: pictures_path, multipart: true} do |f| %>
 
-<%= f.label :title %>
-<%= f.text_field :title %><br>
-<%= f.label('Description: ') %> <br>
-<%= f.text_area(:description) %><br>
+
+<%= f.text_field :title, class: "form-control", :placeholder => "Enter Photo Title", :style => "width:50%;" %>
+  <br>
+<%= f.text_area :description, class: "form-control", :placeholder => "Enter Photo Description",:style => "width:50%;" %>
+  <br>
 <%= f.file_field(:photo) %>
 
 <%= f.hidden_field :user_id, :value => session[:user_id]  %>
 <br><br>
-<%= f.submit('Upload photo!') %>
+<%= f.submit('Upload photo!', class: "form-control", :style => "width:20%;") %>
 
 <% end %>
