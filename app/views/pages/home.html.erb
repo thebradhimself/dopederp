@@ -1,1 +1,32 @@
-<h1> DOPE? or DERP? </h1>
+<h1 class="page-header text-center"> DOPE? or DERP? </h1>
+<h3 class="page-header text-center"> Top Photos! </h3>
+
+<div class="form-group">
+
+  <% @pictures.each_slice(6) do |pictures| %>
+    <div class="row">
+      <% pictures.each do |picture| %>
+        <div class="col-xs-2">
+          <% image_tag picture.photo.url, :size => "150" %>
+          <% link_to(picture.description, picture_path(picture.id)) %>
+          <%= link_to(image_tag( picture.photo.url, :size => "150"), picture_path(picture.id)) %>
+          <div class="pull-left classy_class">
+            <%= form_for picture, {url: picture_path(picture.id)} do |f| %>
+              <%= f.hidden_field :upvote, :value => (picture.upvote += 1) %>
+              <%= f.button(picture.upvote, class: "btn btn-sm btn-success glyphicon glyphicon-thumbs-up") %>
+            <% end %>
+          </div>
+          <div class"classy_class">
+            <%= form_for picture, {url: picture_path(picture.id)} do |f| %>
+              <%= f.hidden_field :downvote, :value => (picture.downvote += 1) %>
+              <%= f.button(picture.downvote, class: "btn btn-sm btn-danger glyphicon glyphicon-thumbs-down") %>
+            <% end %>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+    <br>
+    <br>
+  <% end %>
+</div>
