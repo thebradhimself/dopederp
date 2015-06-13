@@ -2,6 +2,8 @@ class PagesController < ApplicationController
 
 	def home
 
+		@pictures = Picture.all.order(upvote: :desc).limit(6)
+
 	end
 
 	def showmine
