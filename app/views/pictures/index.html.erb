@@ -1,9 +1,17 @@
-<ul>
-  <% @picture.each do |picture| %>
-    <li>
-      <%= image_tag picture.photo.url, :size => "150" %>
-      <%= link_to(picture.description, picture_path(picture.id)) %>
-      <%= link_to(image_tag( picture.photo.url, :size => "150"), picture_path(picture.id)) %>
-  </li>
+<h1 class = "page-header">Pictures</h1>
+<div class="form-group">
+
+  <% @picture.each_slice(6) do |pictures| %>
+    <div class="row">
+      <% pictures.each do |picture| %>
+        <div class="col-xs-2">
+          <% image_tag picture.photo.url, :size => "150" %>
+          <% link_to(picture.description, picture_path(picture.id)) %>
+          <%= link_to(image_tag( picture.photo.url, :size => "150"), picture_path(picture.id)) %>
+        </div>
+      <% end %>
+    </div>
+    <br>
+    <br>
   <% end %>
-</ul>
+</div>
