@@ -1,7 +1,13 @@
 class PagesController < ApplicationController
 
 	def home
-	 
+
+	end
+
+	def showmine
+
+		@user = User.find(session[:user_id])
+
 	end
 
 	def search_index
