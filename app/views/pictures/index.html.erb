@@ -21,7 +21,7 @@
           <div class="pull-left classy_class">
             <%= form_for picture, {url: picture_path(picture.id)} do |f| %>
               <%= f.hidden_field :upvote, :value => (picture.upvote += 1) %>
-              <%= f.button(picture.upvote, class: "btn btn-sm btn-success glyphicon glyphicon-thumbs-up") %>
+              <%= f.button(picture.upvote, class: "btn btn-sm btn-success") %>
             <% end %>
           </div>
           <div class"classy_class">
