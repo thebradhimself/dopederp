@@ -1,4 +1,4 @@
-<h1 class = "page-header">Picture description</h1>
+<h1 class = "page-header">"<%= @picture.title %>"</h1>
 <div class="form-group">
   <div class="row">
     <div class="col-lg-5 col-sm-6 col-xs-6">
@@ -7,21 +7,22 @@
         <div class="col-xs-2 pull-left">
           <%= form_for @picture, {url: picture_path} do |f| %>
             <%= f.hidden_field :upvote, :value => (@picture.upvote += 1) %>
-            <%= f.button('', class: "btn btn-lg btn-success") %>
+            <%= f.button(@picture.upvote, class: "btn btn-lg btn-success") %>
           <% end %>
         </div>
-        <div class="col-xs-1">
-          <%= @picture.upvote %>
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-2">
         </div>
         <div class="col-xs-2">
           <%= form_for @picture, {url: picture_path} do |f| %>
             <%= f.hidden_field :downvote, :value => (@picture.downvote += 1) %>
-            <%= f.button('', class: "btn btn-lg btn-danger") %>
+            <%= f.button(@picture.downvote, class: "btn btn-lg btn-danger") %>
           <% end %>
         </div>
-        <div class="col-xs-1">
-          -<%= @picture.downvote %>
-        </div>
+
 
       </div>
     </div>
