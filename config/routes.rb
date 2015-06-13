@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/pic' => 'pictures#index'
   resources :pictures
 
+  post '/pictures/:id' => 'pictures#upvote'
+
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
