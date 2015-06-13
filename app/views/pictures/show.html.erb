@@ -12,7 +12,10 @@
       </div>
       <div class="row">
         <div class="col-xs-12", style = 'height: 337px; overflow-wrap:break-word; overflow-y:scroll' >
-          <%= @picture.description %>
+          <%= @picture.description %><br>
+          Total: <%= @picture.upvote - @picture.downvote %> <br>
+          Upvotes: <%= @picture.upvote %><br>
+          Downvotes: -<%= @picture.downvote %><br>
         </div>
       </div>
     </div>
@@ -24,11 +27,21 @@
     <div class="col-xs-1">
 
     </div>
-    <div class="col-xs-1">
-      <button class="btn btn-lg btn-success glyphicon glyphicon-thumbs-up" type="submit"></button>
+    <div class="col-xs-1 pull-left">
+
+      <%= form_for @picture, {url: picture_path} do |f| %>
+        <%= f.hidden_field :upvote, :value => (@picture.upvote += 1) %>
+        <%= f.button('', class: "btn btn-lg btn-success glyphicon glyphicon-thumbs-up") %>
+      <% end %>
     </div>
     <div class="col-xs-1">
-      <button class="btn btn-lg btn-danger glyphicon glyphicon-thumbs-down" type="submit"></button>
+
+    </div>
+      <%= form_for @picture, {url: picture_path} do |f| %>
+        <%= f.hidden_field :downvote, :value => (@picture.downvote += 1) %>
+        <%= f.button('', class: "btn btn-lg btn-danger glyphicon glyphicon-thumbs-down") %>
+      <% end %>
+
     </div>
 
   </div>
