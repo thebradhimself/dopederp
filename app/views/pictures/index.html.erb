@@ -1,7 +1,6 @@
 <ul>
   <% @pictures.each do |picture| %>
     <li>
-      <%= image_tag picture.photo.url, :size => "150" %>
       <%= link_to(picture.description, picture_path(picture.id)) %>
       <%= link_to(image_tag( picture.photo.url, :size => "150"), picture_path(picture.id)) %>
   </li>

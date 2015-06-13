@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
-
+  get '/result' => 'pages#search_index'
 end

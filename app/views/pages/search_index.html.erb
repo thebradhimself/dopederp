@@ -1,1 +1,11 @@
+<% @pictures.each do |picture| %>
+  <li>
+    <%= link_to(image_tag( picture.photo.url, :size => "150"), picture_path(picture.id)) %>
+    <br>
+    Title: <%= link_to(picture.title.upcase, picture_path(picture.id)) %>
+    <br>
+    Description: <%= "#{picture.description}"%>
+	</li>
+<% end %>
+
 

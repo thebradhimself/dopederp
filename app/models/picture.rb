@@ -14,7 +14,7 @@ class Picture < ActiveRecord::Base
   end
 
   def self.search(query)
- 	 where("email like ?", "%#{query}%") 
+ 	  where("title like ? OR description like ?", "%#{query}%", "%#{query}%") 
   end
 
 end
