@@ -4,9 +4,17 @@ class PicturesController < ApplicationController
   end
 
   def new
+    @picture = Picture.new
   end
 
   def create
+    @picture = Picture.new(picture_params)
+
+    if @picture.save
+      redirect_to pictures_index
+    else
+      render :new
+    end
   end
 
   def show
@@ -19,6 +27,11 @@ class PicturesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def picture_params
+    params.require(:picture).permit(:photo, :description, :user_id)
   end
 
 end
