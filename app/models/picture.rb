@@ -13,4 +13,8 @@ class Picture < ActiveRecord::Base
     self.voted = false
   end
 
+  def self.search(query)
+ 	 where("email like ?", "%#{query}%") 
+  end
+
 end
