@@ -11,7 +11,7 @@ class PicturesController < ApplicationController
     @picture = Picture.new(picture_params)
 
     if @picture.save
-      redirect_to pictures_index
+      redirect_to pictures_path
     else
       render :new
     end
