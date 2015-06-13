@@ -4,7 +4,11 @@ class PicturesController < ApplicationController
 
 
   def index
-    @pictures = Picture.all
+    if params[:order_by]
+      @pictures = Picture.all.order(params[:order_by].to_sym)
+    else
+      @pictures = Picture.all
+    end
   end
 
   def new
