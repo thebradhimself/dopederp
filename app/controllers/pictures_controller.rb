@@ -1,4 +1,6 @@
 class PicturesController < ApplicationController
+  before_action :find_picture, only: [:edit, :update, :show, :destroy]
+
 
   def index
   end
@@ -11,7 +13,7 @@ class PicturesController < ApplicationController
     @picture = Picture.new(picture_params)
 
     if @picture.save
-      redirect_to pictures_index
+      redirect_to pictures_path
     else
       render :new
     end
@@ -24,6 +26,11 @@ class PicturesController < ApplicationController
   end
 
   def update
+    if @picture.update(picture_params)
+      redirect_to pictures_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -32,6 +39,10 @@ class PicturesController < ApplicationController
   private
   def picture_params
     params.require(:picture).permit(:photo, :description, :user_id)
+  end
+
+  def find_picture
+    @picture = Picture.find(params[:id])
   end
 
 end
