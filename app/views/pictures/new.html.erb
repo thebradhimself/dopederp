@@ -1,0 +1,8 @@
+<%= form_for @picture, {url: pictures_path, multipart: true} do |f| %>
+<%= f.label('Description: ') %> <br>
+<%= f.text_area(:description) %><br>
+<%= f.file_field(:photo) %>
+<br><br>
+<%= f.submit('Upload photo!') %>
+
+<% end %>
