@@ -4,7 +4,7 @@
   <%=link_to 'About', about_path, class: 'btn btn-primary' %>
   <% if user_signed_in? %>
     <%=link_to 'Dope or Derp?', pictures_path, class: 'btn btn-primary' %>
-    <%=link_to 'My D/D Pics', '', class: 'btn btn-primary' %>
+    <%=link_to 'My D/D Pics', current_user.username, class: 'btn btn-primary' %>
     <%=link_to 'Upload', new_picture_path, class: 'btn btn-primary' %>
   <% end %>
 

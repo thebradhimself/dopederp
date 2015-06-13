@@ -1,13 +1,7 @@
 class PicturesController < ApplicationController
   before_action :find_picture, only: [:edit, :update, :show, :destroy]
 
-  def upvote
-    @picture = Picture.find(params[:id])
-    @picture.upvote += 1
-    @picture.save
-    @picture.increment!(:upvote, 1)
 
-  end
 
   def index
     @pictures = Picture.all
