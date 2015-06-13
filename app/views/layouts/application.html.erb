@@ -41,10 +41,10 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <img class="img-responsive" src="img/profile.png" alt="">
           <div class="intro-text">
           	<span class="skills">Is your picture...</span>
-            <span class="name">Dope? or Derp?</span>
+	          <span class="name">Dope? or Derp?</span>
+	          <img class="img-responsive" src="/assets/face.jpg" alt="" width="40%">
           </div>
         </div>
       </div>
@@ -55,11 +55,11 @@
   	<% flash.each do |key, value| %>
   		<%= value %>
   	<% end %>
-
-  	<%= form_tag(result_path, :method => "get", id: "search-form") do %>
-  		<%= text_field_tag :search, params[:search], placeholder: "Search dopes & derps..." %>
-  		<%= submit_tag "Search", :name => nil %>
-		<% end %>
+  	
+    <%= form_tag(result_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search dopes & derps..." %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
 
     <%= yield %>
 
