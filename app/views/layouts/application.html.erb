@@ -50,19 +50,21 @@
       </div>
     </div>
   </header>
-  <div class="row">
-    <div class="col-sm=12">
-  	<% flash.each do |key, value| %>
-  		<%= value %>
-  	<% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm=12">
+    	<% flash.each do |key, value| %>
+    		<%= value %>
+    	<% end %>
 
-  	<%= form_tag(result_path, :method => "get", id: "search-form") do %>
-  		<%= text_field_tag :search, params[:search], placeholder: "Search dopes & derps..." %>
-  		<%= submit_tag "Search", :name => nil %>
-		<% end %>
-
-    <%= yield %>
-
+    	<%= form_tag(result_path, :method => "get", id: "search-form") do %>
+    		<%= text_field_tag :search, params[:search], placeholder: "Search dopes & derps..." %>
+    		<%= submit_tag "Search", :name => nil %>
+  		<% end %>
+      <div class="container">
+      <%= yield %>
+      </div>
+      </div>
     </div>
   </div>
   <div class="row">
