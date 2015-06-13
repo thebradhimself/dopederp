@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Thank you for signing up to Dope or Derp!"
       redirect_to root_path
     else
+      flash[:error] = @user.errors.full_messages
       render :new
     end
   end
