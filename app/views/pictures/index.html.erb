@@ -1,0 +1,8 @@
+<ul>
+  <% @picture.each do |picture| %>
+    <li>
+      <%= image_tag picture.photo.url, :size => "150" %>
+      <%= link_to(picture.description, picture_path(picture.id)) %>
+    </li>
+  <% end %>
+</ul>
