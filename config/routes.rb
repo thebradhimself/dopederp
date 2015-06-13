@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  get '/pic' => 'pictures#index'
   resources :pictures
 
   get '/signup' => 'users#new'

@@ -16,6 +16,11 @@
 		<%= value %>
 	<% end %>
 
+	<%= form_tag(pictures_path, :method => "get", id: "search-form") do %>
+  	<%= text_field_tag :search, params[:search], placeholder: "Search pictures..." %>
+  	<%= submit_tag "Search", :name => nil %>
+	<% end %>
+
 <%= yield %>
 </div>
 
