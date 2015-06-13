@@ -1,38 +1,16 @@
-<<div class="center">
-  <h1 class = "page-header">Pictures</h1>
 
-  <div class = "">
-         <%= link_to('Sort By Most Popular', pictures_path({order_by: 'upvote'}), class: "btn btn-success")  %>
-         <%= link_to('Sort By Least Popular', pictures_path({order_by: 'downvote'}), class: "btn btn-success") %>
-         <%= link_to('Sort By Newly Submitted', pictures_path({order_by: 'created_at'}), class: "btn btn-success") %>
-        </div>
+<h1 class = "page-header">Pictures</h1>
+
+<div class = "">
+       <%= link_to('Sort By Most Popular', pictures_path({order_by: 'upvote'}), class: "btn btn-success")  %>
+       <%= link_to('Sort By Least Popular', pictures_path({order_by: 'downvote'}), class: "btn btn-success") %>
+       <%= link_to('Sort By Newly Submitted', pictures_path({order_by: 'created_at'}), class: "btn btn-success") %>
+      </div>
 
 
-  <div class="form-group">
-    <br><br>
+<div class="form-group">
+  <br><br>
 
-    <% @pictures.each_slice(6) do |pictures| %>
-      <div class="row">
-        <% pictures.each do |picture| %>
-          <div class="col-xs-2">
-            <% image_tag picture.photo.url, :size => "150" %>
-            <% link_to(picture.description, picture_path(picture.id)) %>
-            <%= link_to(image_tag( picture.photo.url, :size => "150"), picture_path(picture.id)) %>
-            <div class="pull-left classy_class">
-              <%= form_for picture, {url: picture_path(picture.id)} do |f| %>
-                <%= f.hidden_field :upvote, :value => (picture.upvote += 1) %>
-                <%= f.button(picture.upvote, class: "btn btn-sm btn-success glyphicon glyphicon-thumbs-up") %>
-              <% end %>
-            </div>
-            <div class"classy_class">
-              <%= form_for picture, {url: picture_path(picture.id)} do |f| %>
-                <%= f.hidden_field :downvote, :value => (picture.downvote += 1) %>
-                <%= f.button(picture.downvote, class: "btn btn-sm btn-danger glyphicon glyphicon-thumbs-down") %>
-              <% end %>
-            </div>
-
-<<<<<<< HEAD
-=======
   <% @pictures.each_slice(6) do |pictures| %>
     <div class="row">
       <% pictures.each do |picture| %>
@@ -51,12 +29,12 @@
               <%= f.hidden_field :downvote, :value => (picture.downvote += 1) %>
               <%= f.button(picture.downvote, class: "btn btn-sm btn-danger") %>
             <% end %>
->>>>>>> bradbranch
           </div>
-      <% end %>
+
         </div>
-      <br>
-      <br>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+    <br>
+    <br>
+  <% end %>
 </div>
